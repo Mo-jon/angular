@@ -1,0 +1,30 @@
+<p>login works!</p>
+<ul>
+    <li>
+        <label for="name">用户名</label>
+        <input type="text" name="name" id="name" [(ngModel)]="form.name" required>
+    </li>
+    <li>
+        <label for="password">密码</label>
+        <input type="text" name="password" id="password" [(ngModel)]="form.password" required>
+    </li>
+    <li>
+        <label for="date">时间</label>
+        <input type="date" name="date" id="date" [(ngModel)]="form.date">
+    </li>
+    <li>
+        <button (click)="submit()">提交</button>
+    </li>
+    <li>
+        <button (click)="clear()">清除localStorage</button>
+    </li>
+</ul>
+<p>
+    {{form.name}}
+    {{form.password}}
+    {{form.date}}
+</p>
+<hr>
+<p *ngIf="user">{{user.id}}|{{user.name}}|{{user.token}}</p>
+<hr>
+<p>{{location}}</p>

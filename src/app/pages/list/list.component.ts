@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class ListComponent implements OnInit {
 
   constructor(
-    private apiService: ApiService
+    private api: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -17,7 +17,7 @@ export class ListComponent implements OnInit {
 
   getList() {
     console.log('获取apiService数据：')
-    this.apiService.getList().subscribe(resp => {
+    this.api.getList().subscribe(resp => {
       console.log('获取apiService数据：', resp)
     });
   }

@@ -4,19 +4,23 @@ import { PreloadAllModules, Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: "home",
+    pathMatch: "full"
+  },
+  {
     path: 'home',
     loadChildren: () => import("./pages/home/home.module").then(m => m.HomeModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import("./pages/login/login.module").then(m => m.LoginModule)
   },
   {
     path: 'list',
     loadChildren: () => import("./pages/list/list.module").then(m => m.ListModule),
     // 路由守卫，能否加载
     // canLoad: [CanLoad]
-  },
-  {
-    path: '',
-    redirectTo: "home",
-    pathMatch: "full"
   },
   // 这个404路由又顺序问题，必须放在最后
   {
