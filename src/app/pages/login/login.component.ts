@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     })
 
     // 订阅location
-    this.store.location.value.subscribe(data => {
+    this.store.location.get(data => {
       console.log('[location.data]', JSON.stringify(data));
       this.location = data;
     })

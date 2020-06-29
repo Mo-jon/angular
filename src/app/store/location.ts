@@ -12,16 +12,24 @@ export interface Location {
 }
 
 export class LocationStore {
-    public value: Subject<Location>;
+    private subject: Subject<Location>;
 
     constructor() {
-        this.value = new Subject();
+        this.subject = new Subject();
+    }
+
+    // 获取
+    get(callBack: any) {
+        this.subject.subscribe(observer => {
+            callBack(observer);
+        });
+        this.update();
     }
 
     // 更新
     private update() {
         let location = localStorage.getItem('location');
-        this.value.next(JSON.parse(location))
+        this.subject.next(JSON.parse(location))
     }
 
     // 移除

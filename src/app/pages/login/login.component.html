@@ -27,4 +27,4 @@
 <hr>
 <p *ngIf="user">{{user.id}}|{{user.name}}|{{user.token}}</p>
 <hr>
-<p>{{location}}</p>
+<p *ngIf="user">{{location.id}}|{{user.name}}</p>

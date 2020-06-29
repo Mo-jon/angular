@@ -25,8 +25,9 @@ interface Params {
  * @class ApiService
  */
 export class HttpService {
+  /**请求根地址 */
   private aipUrl: string = environment.apiUrl;
-  // 设置请求头
+  /**设置请求头 */
   private headers = {};
 
   constructor(private httpClient: HttpClient, private store: Store) {
@@ -71,7 +72,7 @@ export class HttpService {
     )
   }
 
-  // 设置参数格式
+  /**设置参数格式 */
   private setParams(params: Params): { [params: string]: string } {
     let result = {};
     for (let p in params) {

@@ -16,7 +16,6 @@ export class ListComponent implements OnInit {
   }
 
   getList() {
-    console.log('获取apiService数据：')
     this.api.getList().subscribe(resp => {
       console.log('获取apiService数据：', resp)
     });
