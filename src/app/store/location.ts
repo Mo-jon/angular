@@ -18,27 +18,28 @@ export class LocationStore {
         this.subject = new Subject();
     }
 
-    // 获取
+    /**获取 */
     get(callBack: any) {
         this.subject.subscribe(observer => {
             callBack(observer);
         });
+        // 执行一次，获取初始值
         this.update();
     }
 
-    // 更新
+    /**更新 */
     private update() {
         let location = localStorage.getItem('location');
         this.subject.next(JSON.parse(location))
     }
 
-    // 移除
+    /**移除 */
     remove() {
         localStorage.removeItem('location')
         this.update()
     }
 
-    // 设置
+    /**设置 */
     set(value: Location) {
         localStorage.setItem('location', JSON.stringify(value))
         this.update()

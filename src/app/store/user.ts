@@ -28,27 +28,28 @@ export class UserStore {
         this.subject = new Subject();
     }
 
-    // 获取
+    /**获取 */
     get(callBack: any) {
         this.subject.subscribe(observer => {
             callBack(observer);
         });
+        // 执行一次，获取初始值
         this.update();
     }
 
-    // 更新
+    /**更新 */
     private update() {
         let user = localStorage.getItem('user');
         this.subject.next(JSON.parse(user));
     }
 
-    // 移除
+    /**移除 */
     remove() {
         localStorage.removeItem('user')
         this.update()
     }
 
-    // 设置
+    /**设置 */
     set(value: User) {
         localStorage.setItem('user', JSON.stringify(value))
         this.update()
