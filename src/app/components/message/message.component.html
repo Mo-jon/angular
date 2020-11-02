@@ -1,19 +1,16 @@
-<div>
-  <hr>
-  <p>message works!</p>
+<div class="message">
+  <h1>插槽使用</h1>
   <ng-content select="header"></ng-content>
   <ng-content></ng-content>
   <ng-content select=".content"></ng-content>
   <ng-content select="footer"></ng-content>
 
   <hr>
-  <h1>内部模板使用</h1>
-  <ng-container *ngTemplateOutlet="greet"></ng-container>
-  <hr>
-  <ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container>
-  <hr>
-  <ng-container *ngTemplateOutlet="svk; context: myContext"></ng-container>
-  <hr>
+  <h6>内部模板使用</h6>
+  <ng-container *ngTemplateOutlet="greet"></ng-container><br>
+  <ng-container *ngTemplateOutlet="eng; context: myContext"></ng-container><br>
+  <ng-container *ngTemplateOutlet="svk; context: myContext"></ng-container><br>
+
   <ng-template #greet><span>Hello</span></ng-template>
   <ng-template #eng let-name><span>Hello {{name}}!</span></ng-template>
   <ng-template #svk let-person="localSk"><span>Ahoj {{person}}!</span></ng-template>

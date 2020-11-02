@@ -1,27 +1,2 @@
-<h1>当前环境：{{env}}</h1>
-<ul>
-  <li><a routerLink="/home" routerLinkActive="active">首页</a></li>
-  <li><a routerLink="/list" routerLinkActive="active">列表</a></li>
-  <li><a routerLink="/login" routerLinkActive="active">登录</a></li>
-</ul>
+<app-nav></app-nav>
 <p>home works!</p>
-
-<!-- 自定义组件 message -->
-<app-message text="123456789" (clickButton)="clickBtn($event)">
-  <header>
-    <h1>我是一个插入的头部</h1>
-  </header>
-  <div>
-    <p>插入内容一</p>
-    <ul>
-      <li><a routerLink="/home" routerLinkActive="active">首页</a></li>
-      <li><a routerLink="/list" routerLinkActive="active">列表</a></li>
-    </ul>
-  </div>
-  <div class="content">插入的内容 class="content"</div>
-  <footer>
-    <p>我是一个插入的底部</p>
-  </footer>
-</app-message>
-
-<p>{{message}}</p>

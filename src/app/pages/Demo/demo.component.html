@@ -1,0 +1,43 @@
+<button (click)="goHome()">去首页</button>
+<p>Demo works!</p>
+<button (click)="getList()">获取列表</button>
+
+<!-- 自定义组件 message -->
+<app-message text="123456789" (clickButton)="clickBtn($event)">
+  <header>
+    <p>插入 header</p>
+  </header>
+  <div>
+    <p>插入内容一</p>
+  </div>
+  <div class="content">插入 class="content"</div>
+  <footer>
+    <p>插入 footer</p>
+  </footer>
+</app-message>
+
+<h1>当前环境：{{env}}</h1>
+<p>接收子组件事件：{{message}}</p>
+<hr>
+<h1>结合表单使用发布订阅</h1>
+<ul>
+  <li>
+    <label for="name">用户名</label>
+    <input type="text" name="name" id="name" [(ngModel)]="form.name" required>
+  </li>
+  <li>
+    <label for="password">密码</label>
+    <input type="text" name="password" id="password" [(ngModel)]="form.password" required>
+  </li>
+  <li>
+    <label for="date">时间</label>
+    <input type="date" name="date" id="date" [(ngModel)]="form.date">
+  </li>
+  <li>
+    <button (click)="submit()">提交</button>
+    <button (click)="clear()">清除localStorage</button>
+  </li>
+</ul>
+<p> ---> {{form.name}} | {{form.password}} | {{form.date}} </p>
+<p *ngIf="user">{{location.id}}|{{user.name}}</p>
+<p *ngIf="user">{{user.id}}|{{user.name}}|{{user.token}}</p>

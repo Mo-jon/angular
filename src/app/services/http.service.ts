@@ -33,9 +33,11 @@ export class HttpService {
   constructor(private httpClient: HttpClient, private store: Store) {
     // 订阅user, 获取token
     this.store.user.get(user => {
-      this.headers = {
-        'AccessToken': user.token
-      };
+      if(user){
+        this.headers = {
+          'AccessToken': user.token
+        };
+      }
     })
   }
 

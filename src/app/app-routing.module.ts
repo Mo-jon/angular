@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, Routes, RouterModule } from '@angular/router';
-// import { CanLoad } from './routeLoad/CanLoad'
+import { CanLoad } from './routeLoad/CanLoad'
 
 const routes: Routes = [
   {
@@ -16,11 +16,12 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import("./pages/login/login.module").then(m => m.LoginModule)
   },
+  // 测试页
   {
-    path: 'list',
-    loadChildren: () => import("./pages/list/list.module").then(m => m.ListModule),
+    path: 'demo',
+    loadChildren: () => import("./pages/Demo/demo.module").then(m => m.DemoModule),
     // 路由守卫，能否加载
-    // canLoad: [CanLoad]
+    canLoad: [CanLoad]
   },
   // 这个404路由又顺序问题，必须放在最后
   {

@@ -11,6 +11,10 @@ import { Components } from './components';
 // 页面
 import { Pages } from './pages';
 
+// 路由守卫
+import { CanLoad, Permissions, UserToken } from './routeLoad/CanLoad';
+import { NavComponent } from './components/nav/nav.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +22,7 @@ import { Pages } from './pages';
     ...Components,
     // 页面
     ...Pages,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,7 @@ import { Pages } from './pages';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [CanLoad, Permissions, UserToken],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
