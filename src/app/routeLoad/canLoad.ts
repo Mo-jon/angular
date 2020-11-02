@@ -12,8 +12,8 @@ interface RouteCanLoad {
 export class UserToken { }
 export class Permissions {
     canLoadChildren(user: UserToken, id: string, segments: UrlSegment[]): boolean {
-        console.log('[canLoadChildren]', user, id, segments);
-        // 返回true跳转
+        console.log('[路由守卫]', user, id, segments);
+        // 返回true跳转，首次通过后将不再验证
         return true;
     }
 }
